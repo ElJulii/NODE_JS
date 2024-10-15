@@ -12,3 +12,12 @@ First we create a js file, the we write js code and on the console we write: nod
 This is the common way to export and import functions or variables. However, nowadays it no recommended to use it.
 All the files js are already made to work with common js, so if we want to force these files. we write in one file *name_file.cjs* instead of just *name_file.js*. Files with examples.
 **one_cjs**.
+
+## ME modules
+If we want to use with node.js, we need to name our files with **.mjs** termination. This is the best way to export and import modules. it is very simple, just to add *export* in the beginning of the function, and in the importer file, just `import {name_function} from 'path/file'`:
+
+### No just one import
+
+
+
+**two_EM_modules**
