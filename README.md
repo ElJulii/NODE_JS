@@ -18,6 +18,6 @@ If we want to use with node.js, we need to name our files with **.mjs** terminat
 
 ### No just one import
 
-
+![](https://github.com/ElJulii/NODE_JS/blob/main/imgs/Screenshot%202024-10-15%20135443.png)
 
 **two_EM_modules**
