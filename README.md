@@ -43,5 +43,11 @@ WE two forms:
 - Using *Common modules*: Here we just to use a IIFE (Immediately Involved Function expression) that will be *async*:
 `(  async () => {} )()`
 
+### fs reading parallel
+
+We just to implement `Promise.all([readFile_one(), readFile_two()]).then((text_one, text_two) => {
+    //code
+})`
+
 More info: **native modules**.
 
