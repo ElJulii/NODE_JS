@@ -29,5 +29,10 @@ We can access to the properties of our computer. These can be, operating system,
 Easy way to get informatin of files; like size in bytes or even if it is a folder or not.
 `const fs = require('node:fs');`.
 
+### fs  reading files
+Two method to read files:
+`readFileAsync(PATH, 'utf-8')`: With this code we will just get async readability, with the order already defined.
+`readFile(PATH, 'utf-8', CallBack)`: Here we can work with call backs that will be executed just when the finish read the files, meanwhile they continue with the rest of the code.
+
 MOre info: **native modules**.
 
