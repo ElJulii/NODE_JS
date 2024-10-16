@@ -34,5 +34,8 @@ Two method to read files:
 `readFileAsync(PATH, 'utf-8')`: With this code we will just get async readability, with the order already defined.
 `readFile(PATH, 'utf-8', CallBack)`: Here we can work with call backs that will be executed just when the finish read the files, meanwhile they continue with the rest of the code.
 
+### fs reading files with PROMISES
+Instead of `const fs = requite('node:fs')` wi will use `const fs = requite('node:fs/promises')`. New it will be easier to read files, avoiding *callBacks*.
+
 MOre info: **native modules**.
 
