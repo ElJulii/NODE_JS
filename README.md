@@ -21,7 +21,13 @@ If we want to use with node.js, we need to name our files with **.mjs** terminat
 ![](https://github.com/ElJulii/NODE_JS/blob/main/imgs/Screenshot%202024-10-15%20135443.png)
 
 **two_EM_modules**
+## native modules
+### OS System
+We can access to the properties of our computer. These can be, operating system, memory or even time that our computer has TURNED UP. We can access with `const os = require('node:os')`.
 
-## OS System
-We can access to the properties of our computer. These can be, operating system, memory or even time that our computer has TURNED UP. We can access with `const os = require('node:os')`
+### fs file system
+Easy way to get informatin of files; like size in bytes or even if it is a folder or not.
+`const fs = require('node:fs');`.
+
 MOre info: **native modules**.
+
