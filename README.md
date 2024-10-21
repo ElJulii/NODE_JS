@@ -37,5 +37,21 @@ Two method to read files:
 ### fs reading files with PROMISES
 Instead of `const fs = requite('node:fs')` wi will use `const fs = requite('node:fs/promises')`. New it will be easier to read files, avoiding *callBacks*.
 
-MOre info: **native modules**.
+### fs reading files with async await
+WE two forms:
+- Using *ME modules* that we just need to import the readFile and just merge con with *await*.
+- Using *Common modules*: Here we just to use a IIFE (Immediately Involved Function expression) that will be *async*:
+`(  async () => {} )()`
+
+### fs reading parallel
+
+We just to implement `Promise.all([readFile_one(), readFile_two()]).then((text_one, text_two) => {
+    //code
+})`
+
+### path
+We can create paths, join folder with our files, know the real extension of our files and even just know the 
+name of the file that we want without the extension. *6.path.js*
+
+More info: **native modules**.
 
