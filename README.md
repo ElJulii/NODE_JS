@@ -38,7 +38,7 @@ Two method to read files:
 Instead of `const fs = requite('node:fs')` wi will use `const fs = requite('node:fs/promises')`. New it will be easier to read files, avoiding *callBacks*.
 
 ### fs reading files with async await
-WE two forms:
+We two forms:
 - Using *ME modules* that we just need to import the readFile and just merge con with *await*.
 - Using *Common modules*: Here we just to use a IIFE (Immediately Involved Function expression) that will be *async*:
 `(  async () => {} )()`
@@ -59,3 +59,13 @@ More info: **native modules**.
 
 With `fs.readdir.()` we can see all the files and folders from a specific folder, using `foreach()`:
 Exercise in  *Apps/first-app/ls.js*
+
+### readdir with process.argv
+
+*process.argv* works as an array to see where are installed node and where our project is located. Using 
+*process.argv* can help us to navigate in folder from a same project. How?
+
+Executing the file and adding the folder, which we want to check its files.
+
+`node ./App/first-app/ls-advance.js    ./native-module` Here will se all files and folder of the folder 
+*native-modules* executing *ls-advance.js*
