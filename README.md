@@ -65,6 +65,14 @@ Exercise in  *Apps/first-app/ls.js*
 *process.argv* works as an array to see where are installed node and where our project is located. Using 
 *process.argv* can help us to navigate in folder from a same project. How?
 
+### process.exit
+This function finishes with the process of the node.js. It finishes no matter what happen.
+#### Exit code
+The code says that the app will finishes if everything was done correctly or it was come up an error. They are two
+of those codes. 0 and 1. 
+**0** says that the app finished with no errors. Successfully end.
+**1** says that the app finished with errors. End with errors.
+
 Executing the file and adding the folder, which we want to check its files.
 
 `node ./App/first-app/ls-advance.js    ./native-module` Here will se all files and folder of the folder 
