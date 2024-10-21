@@ -55,3 +55,7 @@ name of the file that we want without the extension. *6.path.js*
 
 More info: **native modules**.
 
+## readdir
+
+With `fs.readdir.()` we can see all the files and folders from a specific folder, using `foreach()`:
+Exercise in  *Apps/first-app/ls.js*
