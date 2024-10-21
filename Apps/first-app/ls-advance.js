@@ -1,5 +1,6 @@
 const fs = require('node:fs/promises');
 const path = require('node:path');
+const pc = require('picocolors');
 
 const folder = process.argv[2] ?? '.'; //Two because is an empty place
 
@@ -8,7 +9,7 @@ async function ls (folder) {
     try {
         files = await fs.readdir(folder);
     } catch {
-        console.error(`It was come up an error with this file: ${folder}`);
+        console.error(pc.red(` It was come up an error with this file: ${folder}`)); //pc red is for picocolors package that has been uninstalled
         process.exit(1); //It says the app finished with errors
     }
 

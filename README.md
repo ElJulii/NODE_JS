@@ -77,3 +77,13 @@ Executing the file and adding the folder, which we want to check its files.
 
 `node ./App/first-app/ls-advance.js    ./native-module` Here will se all files and folder of the folder 
 *native-modules* executing *ls-advance.js*
+
+## NPM
+Line of commands to install dependencies
+`npm --version` It says the npm version that we have installed.
+`npm init` We start npm with dependencies in json file.
+`npm init --yes` or `npm init -s` If we don't want the fill the questions.
+
+### First package picocolors
+
+This dependency gives life to the console, we install it with `npm i picocolors`
