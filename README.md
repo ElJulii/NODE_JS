@@ -49,5 +49,9 @@ We just to implement `Promise.all([readFile_one(), readFile_two()]).then((text_o
     //code
 })`
 
+### path
+We can create paths, join folder with our files, know the real extension of our files and even just know the 
+name of the file that we want without the extension. *6.path.js*
+
 More info: **native modules**.
 
