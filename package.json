@@ -20,5 +20,8 @@
   "bugs": {
     "url": "https://github.com/ElJulii/NODE_JS/issues"
   },
-  "homepage": "https://github.com/ElJulii/NODE_JS#readme"
+  "homepage": "https://github.com/ElJulii/NODE_JS#readme",
+  "eslintConfig": {
+    "extends": "standard"
+  }
 }

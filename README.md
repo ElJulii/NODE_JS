@@ -86,4 +86,11 @@ Line of commands to install dependencies
 
 ### First package picocolors
 
-This dependency gives life to the console, we install it with `npm i picocolors`
+This dependency gives life to the console, we install it with `npm i picocolors`.
+
+### standard
+This dependency will help us to make a code prettier and to fid errors to develop quickly.
+`npm install standard -D`
+
+## HTTP
+The backend was great, but when you finishes REACT como here to continue learning, I love you Julian, You can
