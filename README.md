@@ -1,96 +1,154 @@
 # NODE_JS
 ## What is node? 
-It is a files where we write js code.
+It is a field where we write js code.
+
 ## How do we create it?
 First we create a js file, the we write js code and on the console we write: node  name_of_file.js
 
-`const x = 'Hello world!';`
+## Global or window?
 
-![](https://github.com/ElJulii/NODE_JS/blob/main/imgs/node_helloWorld.png)
+when we use **node**. We must use **globalThis** instead of **window** because window will just work with the browser. /class-1/index.js
 
-## common js import and export 
-This is the common way to export and import functions or variables. However, nowadays it no recommended to use it.
-All the files js are already made to work with common js, so if we want to force these files. we write in one file *name_file.cjs* instead of just *name_file.js*. Files with examples.
-**one_cjs**.
+**console.log()** comes from globalThis!:
 
-## ME modules
-If we want to use with node.js, we need to name our files with **.mjs** termination. This is the best way to export and import modules. it is very simple, just to add *export* in the beginning of the function, and in the importer file, just `import {name_function} from 'path/file'`:
+`globalThis.console.log('Hello world!')`
 
-### No just one import
+## common js + use the name of the function OBLIGATED
 
-![](https://github.com/ElJulii/NODE_JS/blob/main/imgs/Screenshot%202024-10-15%20135443.png)
+//folder class-1/cjs
 
-**two_EM_modules**
-## native modules
-### OS System
-We can access to the properties of our computer. These can be, operating system, memory or even time that our computer has TURNED UP. We can access with `const os = require('node:os')`.
+sum.js
+```
+function sum(a, b) {
+    return a + b;
+}
 
-### fs file system
-Easy way to get informatin of files; like size in bytes or even if it is a folder or not.
-`const fs = require('node:fs');`.
+module.exports = {
+    sum
+}
+```
 
-### fs  reading files
-Two method to read files:
-`readFileAsync(PATH, 'utf-8')`: With this code we will just get async readability, with the order already defined.
-`readFile(PATH, 'utf-8', CallBack)`: Here we can work with call backs that will be executed just when the finish read the files, meanwhile they continue with the rest of the code.
+index.js
+```
+const {sum} = require('/sum');
 
-### fs reading files with PROMISES
-Instead of `const fs = requite('node:fs')` wi will use `const fs = requite('node:fs/promises')`. New it will be easier to read files, avoiding *callBacks*.
+console.log(sum(1, 2));
+```
 
-### fs reading files with async await
-We two forms:
-- Using *ME modules* that we just need to import the readFile and just merge con with *await*.
-- Using *Common modules*: Here we just to use a IIFE (Immediately Involved Function expression) that will be *async*:
-`(  async () => {} )()`
+## mjs (The newest way to export and the one that is recommended)
 
-### fs reading parallel
+//folder class-1/mjs
 
-We just to implement `Promise.all([readFile_one(), readFile_two()]).then((text_one, text_two) => {
-    //code
-})`
+The file is declared with **.mjs**. It is even easier to use and understand. Example:
 
-### path
-We can create paths, join folder with our files, know the real extension of our files and even just know the 
-name of the file that we want without the extension. *6.path.js*
+sum.mjs
+```
+export function sum(a, b) {
+    return a + b;
+}
 
-More info: **native modules**.
+```
 
-## readdir
+index.mjs
+```
+import {sum} from 'class-1/sum.mjs'
 
-With `fs.readdir.()` we can see all the files and folders from a specific folder, using `foreach()`:
-Exercise in  *Apps/first-app/ls.js*
+console.log(sum(1, 2));
+```
 
-### readdir with process.argv
+## Operative System (OS)
 
-*process.argv* works as an array to see where are installed node and where our project is located. Using 
-*process.argv* can help us to navigate in folder from a same project. How?
+We know about the os requiring the `node:os`. 
+`const os = require('node:os');`
 
-### process.exit
-This function finishes with the process of the node.js. It finishes no matter what happen.
-#### Exit code
-The code says that the app will finishes if everything was done correctly or it was come up an error. They are two
-of those codes. 0 and 1. 
-**0** says that the app finished with no errors. Successfully end.
-**1** says that the app finished with errors. End with errors.
+check the information with os. Folder class-1/1-os-info.js
 
-Executing the file and adding the folder, which we want to check its files.
+- platform (name of os)
+- release (operative system version)
+- architecture (x64 or x32)
+- freemem and totalmeme (The free and total memory space)
 
-`node ./App/first-app/ls-advance.js    ./native-module` Here will se all files and folder of the folder 
-*native-modules* executing *ls-advance.js*
+## File system (fs)
 
-## NPM
-Line of commands to install dependencies
-`npm --version` It says the npm version that we have installed.
-`npm init` We start npm with dependencies in json file.
-`npm init --yes` or `npm init -s` If we don't want the fill the questions.
+Here we use `readFileSync('name of file', 'utf-8') ` and `readFile()`.
 
-### First package picocolors
+Sync is going to wait to finish to start other actions. and `readFile()` will work by itself.
 
-This dependency gives life to the console, we install it with `npm i picocolors`.
+## Path
 
-### standard
-This dependency will help us to make a code prettier and to fid errors to develop quickly.
-`npm install standard -D`
+We can create or get the name of a file. `const path = require('node:path')`
 
-## HTTP
-The backend was great, but when you finishes REACT como here to continue learning, I love you Julian, You can
+## Process
+folder 7-process.js
+
+We can access the properties of the consola or search with the help of arguments of the process:
+
+- `process.argv[]` - it takes the value from the console .
+- `process.exit(0)` - code 0 you leave with no errors and with code 1 with errors.
+- `process.env.MATEO` - it stores a value in MATEO from the console. In linux we use `MATEO=value` and with windows 
+
+```
+$env:MATEO = "pene"
+node folder
+
+```
+
+## npm (node package manager)
+
+This manager helps to manage packages and extension for our projects. It works also with the console to init the program and create a package.json that will stores all the dependencies.
+
+`npm init`
+
+## http
+
+Here it is important to create a server and a http request and receive. So we first create the `const http = require('node:http')`. And then we must create the server with `const server = createServer((req, res) => {})`
+
+We have an useful command that can change the editions of my code with a life server without having to rerun the code: 
+<pre> ```bash node --watch class-2/1-http.js ``` </pre>
+
+As alternative we have nodemon:
+
+we install nodemon as:
+<pre> ```bash npm install nodemon -D </pre>
+
+Then in json in Scripts we set as:
+`dev: "nodemon index.js"`
+
+## standard
+
+This extension is for helping us to write a better code with correct spaces, we need to also enable and extension called 'ESLint' and in the package json we need to add:
+
+```
+// "eslintConfig": {
+  //   "extends": "standard"
+  // },
+
+```
+
+## Express
+
+It is one of the most used framework with node Js. So it is so important to us to learn it. We can install it like this: 
+<pre> ```bash npm install express -E``` </pre>
+
+## middleware
+
+It a process that helps us to arrange the code better when we make requests
+
+## API REST (Representational State Transfer)
+
+It is a software architecture used to build APIs
+
+## Validate DATA (string, number...) with ZOD
+
+ZOD is a Type-script validation library. We can validate schemas, data from **string**.
+
+We install ZOD
+
+<pre>```bash npm install zod -E ```</pre>
+
+### POST, PUT, PATCH
+
+- **POST:** Create an element or resource /movies.
+
+- **PUT:** Update an element totally or create it if this one does not exist /movies/id.
+- **PATCH:** Update an element partially /movies/id.

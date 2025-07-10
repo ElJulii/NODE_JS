@@ -21,7 +21,14 @@
     "url": "https://github.com/ElJulii/NODE_JS/issues"
   },
   "homepage": "https://github.com/ElJulii/NODE_JS#readme",
+  "devDependencies": {
+    "standard": "^17.1.2"
+  },
   "eslintConfig": {
     "extends": "standard"
+  },
+  "dependencies": {
+    "express": "5.1.0",
+    "zod": "4.0.2"
   }
 }
