@@ -17,6 +17,7 @@ app.get('/', (request, response) => {
 
 // All the movies resources
 app.get('/movies', (request, response) => {
+  response.header('Access-Control-Allow-Origin', '*')
   const { genre } = request.query
   if (genre) {
     const filterMovies = moviesJSON.filter(

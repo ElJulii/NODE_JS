@@ -109,7 +109,7 @@ We have an useful command that can change the editions of my code with a life se
 As alternative we have nodemon:
 
 we install nodemon as:
-<pre> ```bash npm install nodemon -D </pre>
+```npm install nodemon -D ```
 
 Then in json in Scripts we set as:
 `dev: "nodemon index.js"`
@@ -128,7 +128,7 @@ This extension is for helping us to write a better code with correct spaces, we 
 ## Express
 
 It is one of the most used framework with node Js. So it is so important to us to learn it. We can install it like this: 
-<pre> ```bash npm install express -E``` </pre>
+``` npm install express -E```
 
 ## middleware
 
@@ -144,7 +144,7 @@ ZOD is a Type-script validation library. We can validate schemas, data from **st
 
 We install ZOD
 
-<pre>```bash npm install zod -E ```</pre>
+``` npm install zod -E ```
 
 ### POST, PUT, PATCH
 
@@ -152,3 +152,31 @@ We install ZOD
 
 - **PUT:** Update an element totally or create it if this one does not exist /movies/id.
 - **PATCH:** Update an element partially /movies/id.
+
+### CORS error:
+
+This an error that happens when we are asking or making requests to other PORT from another one.
+
+One good way to solve this error we add to the method we want this
+
+` response.header('Access-Control-Allow-Origin', *)`
+
+The symbol * means that all the external urls are allow to make requests to the origin url, or if we want just one, we can put it instead.
+
+` response.header('Access-Control-Allow-Origin', 'http:localhost:8080')`
+
+This method simple solution works just with methods: GET, HEADER, POST. But with the methods PUT, PATCH and DELETE, we need an OPTION to access.
+
+` response.header('Access-Control-Allow-Origin', 'http:localhost:8080')`
+
+And also we need to mention witch methods are going to be used.
+
+``` 
+response.header('Access-Control-Allow-Methods', 'GET, PUT, PATCH, DELETE')
+response.send(200)
+
+````
+
+we can install a middleware ` npm install cors -E ` and this solves everything instead of us and we will not do what it was written upon.
+
+` app.use(core()) `
