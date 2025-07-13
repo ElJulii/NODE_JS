@@ -3,8 +3,30 @@ const moviesJSON = require('./movies.json')
 const crypto = require('node:crypto')
 const { validateMovie } = require('./schemas/movie')
 const { validatePartialMovie } = require('./schemas/movie')
+const cors = require('cors')
 
 const app = express()
+
+app.use(cors({
+  origin: (origin, callback) => {
+    const ACCEPTED_ORIGINS = [
+      'http://localhost:8080',
+      'http://localhost:1234',
+      'https://movies.com',
+      'https://midu.dev'
+    ]
+
+    if (ACCEPTED_ORIGINS.includes(origin)) {
+      return callback(null, true)
+    }
+
+    if (!origin) {
+      return callback(null, true)
+    }
+
+    return callback(new Error('Not allowed by CORS'))
+  }
+}))
 
 app.use(express.json())
 app.disable('x-powered-by')

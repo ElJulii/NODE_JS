@@ -104,7 +104,10 @@ This manager helps to manage packages and extension for our projects. It works a
 Here it is important to create a server and a http request and receive. So we first create the `const http = require('node:http')`. And then we must create the server with `const server = createServer((req, res) => {})`
 
 We have an useful command that can change the editions of my code with a life server without having to rerun the code: 
-<pre> ```bash node --watch class-2/1-http.js ``` </pre>
+```
+bash node --watch class-2/1-http.js 
+
+```
 
 As alternative we have nodemon:
 
@@ -128,7 +131,10 @@ This extension is for helping us to write a better code with correct spaces, we 
 ## Express
 
 It is one of the most used framework with node Js. So it is so important to us to learn it. We can install it like this: 
-``` npm install express -E```
+``` 
+npm install express -E
+
+```
 
 ## middleware
 
@@ -144,7 +150,10 @@ ZOD is a Type-script validation library. We can validate schemas, data from **st
 
 We install ZOD
 
-``` npm install zod -E ```
+``` 
+npm install zod -E 
+s
+```
 
 ### POST, PUT, PATCH
 
@@ -175,8 +184,60 @@ And also we need to mention witch methods are going to be used.
 response.header('Access-Control-Allow-Methods', 'GET, PUT, PATCH, DELETE')
 response.send(200)
 
-````
+```
 
-we can install a middleware ` npm install cors -E ` and this solves everything instead of us and we will not do what it was written upon.
+we can install a middleware ` npm install cors -E ` and this solves everything instead of us and we will not do what it was written upon. However this middleware puts everything with *.
 
-` app.use(core()) `
+` app.use(core()) ` 
+
+The best to use this is like this:
+
+```
+const cors = require('cors')
+
+app.use(cors({
+  origin: (origin, callback) => {
+    const ACCEPTED_ORIGINS = [
+      'http://localhost:8080',
+      'http://localhost:1234',
+      'https://movies.com',
+      'https://midu.dev'
+    ]
+
+    if (ACCEPTED_ORIGINS.includes(origin)) {
+      return callback(null, true)
+    }
+
+    if (!origin) {
+      return callback(null, true)
+    }
+
+    return callback(new Error('Not allowed by CORS'))
+  }
+}))
+
+```
+
+## module Js 
+
+if we want to to us  **module Js** in your js files. In your package js just hast to add
+
+` { "type" : "module" } `
+
+So now The code environment will ask for **module js** always.
+
+### import JSON with module js
+
+With json we have two way to import it, with **fs** and :
+Example fs:
+`const moviesJson = JSON.parse(fs.readFileSyc('./movies.json', 'utf-8'))`
+
+Example createRequire from modules: 
+
+```
+const { createRequire } from 'node:module'
+const rq = createRequire(module.import.url)
+const moviesJSON = rq('./movies.json')
+```
+
+
