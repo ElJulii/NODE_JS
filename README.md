@@ -239,5 +239,22 @@ const { createRequire } from 'node:module'
 const rq = createRequire(module.import.url)
 const moviesJSON = rq('./movies.json')
 ```
+## DATA BASE!
 
+As we work with postgreSQL, we can work with `import Pool from 'node:pg'`. So we can add a pool (set of data) with information of our database.
 
+```
+export const pool = new Pool ({
+  host: 'localhost'
+  user: 'user',
+  database: 'name data base'
+  password: 'password',
+  port: 5432
+})
+
+```
+### Insert or create query
+
+we can create a query using
+
+`const { rows } = pool.query(query, [data, to, insert, in, query])` 
