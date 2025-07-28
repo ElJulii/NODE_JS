@@ -1,7 +1,7 @@
 import { randomUUID } from 'node:crypto'
 import { pool } from '../../database/config.js'
 
-export class movieModel {
+export class MovieModel {
   static getAll = async ({ genre }) => {
     if (genre) {
       const restLetters = genre.slice(1).toLowerCase()

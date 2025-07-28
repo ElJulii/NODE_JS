@@ -241,7 +241,7 @@ const moviesJSON = rq('./movies.json')
 ```
 ## DATA BASE!
 
-As we work with postgreSQL, we can work with `import Pool from 'node:pg'`. So we can add a pool (set of data) with information of our database.
+As we work with postgreSQL, we can work with `import { Pool } from 'node:pg'`. So we can add a pool (set of data) with information of our database.
 
 ```
 export const pool = new Pool ({
@@ -258,3 +258,16 @@ export const pool = new Pool ({
 we can create a query using
 
 `const { rows } = pool.query(query, [data, to, insert, in, query])` 
+
+## WEB SOCKETS
+Web sockets is another protocol, which is stateful, no cacheable and realtime bidirectional.
+
+### library of sockets:
+socket.io, we install it with - `npm install socket.io -E`
+
+## bcrypt
+It is a hasher that allows us to store safer the user's passwords
+`npm install bcrypt`
+
+hashSync - Blocks the main thread
+hash - give backs a promise

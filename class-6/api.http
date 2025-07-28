@@ -1,0 +1,37 @@
+POST http://localhost:3000/register
+Content-Type: application/json
+
+{
+    "username": "ElJulii28",
+    "password": "Arlet_0804_mateo"
+}
+
+### login
+POST http://localhost:3000/login
+Content-Type: application/json
+
+{
+    "username": "ElJulii28",
+    "password": "Arlet_0804_mateo"
+}
+
+
+### get by id
+GET http://localhost:3000/c053c057-ff35-4174-b99b-5318e0e24441
+
+
+###
+POST http://localhost:3000/register
+Content-Type: application/json
+
+{
+    "username": "Olesya15",
+    "password": "123123"
+}
+
+###
+GET http://localhost:3000/users
+
+### Delete user
+DELETE http://localhost:3000/users/f92d0545-765b-4a15-8551-ca55e337e0c4
+Content-Type: application/json

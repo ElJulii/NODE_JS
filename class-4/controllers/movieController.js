@@ -1,25 +1,27 @@
-import { movieModel } from '../models/postgres/movie.js'
-// import { movieModel } from '../models/local-file-system/movie.js'
 import { validateMovie, validatePartialMovie } from '../schemas/movie.js'
 
 export class MovieController {
-  static async getAll (request, response) {
+  constructor ({ movieModel }) {
+    this.movieModel = movieModel
+  }
+
+  getAll = async (request, response) => {
     const { genre } = request.query
-    const moviesJSON = await movieModel.getAll({ genre })
+    const moviesJSON = await this.movieModel.getAll({ genre })
 
     // what it will render
     response.json(moviesJSON)
   }
 
-  static async getById (request, response) {
+  getById = async (request, response) => {
     const { id } = request.params
-    const movie = await movieModel.getById({ id })
+    const movie = await this.movieModel.getById({ id })
 
     if (movie) response.json(movie)
     else response.status(404).send('<h1 style="color: red">ERROR! The Movie was not found</h1>')
   }
 
-  static async create (request, response) {
+  create = async (request, response) => {
     const result = validateMovie(request.body)
 
     if (!result.success) {
@@ -27,17 +29,17 @@ export class MovieController {
         { error: JSON.parse(result.error.message) })
     }
 
-    const newMovie = await movieModel.create({ input: result.data })
+    const newMovie = await this.movieModel.create({ input: result.data })
     response.status(201).json(newMovie)
   }
 
-  static async deleteId (request, response) {
+  deleteId = async (request, response) => {
     const { id } = request.params
-    if (await movieModel.delete({ id })) { return response.json({ message: 'movie deleted' }) }
+    if (await this.movieModel.delete({ id })) { return response.json({ message: 'movie deleted' }) }
     return response.json({ message: 'movie was not deleted!' })
   }
 
-  static async updateId (request, response) {
+  updateId = async (request, response) => {
     const result = validatePartialMovie(request.body)
 
     if (!result.success) {
@@ -48,7 +50,7 @@ export class MovieController {
 
     const { id } = request.params
 
-    const movieUpdate = await movieModel.update({ id, input: result.data })
+    const movieUpdate = await this.movieModel.update({ id, input: result.data })
 
     return response.json(movieUpdate)
   }

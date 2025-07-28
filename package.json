@@ -6,7 +6,7 @@
   "type": "module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "node --watch class-4/app.js"
+    "dev": "node --watch class-6/index.js"
   },
   "repository": {
     "type": "git",
@@ -30,9 +30,13 @@
     "extends": "standard"
   },
   "dependencies": {
+    "bcrypt": "^6.0.0",
     "cors": "2.8.5",
+    "ejs": "^3.1.10",
     "express": "5.1.0",
+    "jsonwebtoken": "^9.0.2",
     "pg": "^8.16.3",
+    "socket.io": "4.8.1",
     "zod": "4.0.2"
   }
 }
